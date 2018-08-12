@@ -112,6 +112,11 @@ const Translations: TranslationMap = {
     en: "Clear",
     fi: "",
     sv: ""
+  },
+  "deeplink.form.close": {
+    en: "Close",
+    fi: "",
+    sv: ""
   }
 };
 

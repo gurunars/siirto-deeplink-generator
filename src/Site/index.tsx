@@ -29,7 +29,7 @@ const Closable = (props: {
               paddingRight: 40
             }}
           >
-            {tr("deeplink.form.clear")}
+            {tr("deeplink.form.close")}
           </button>
         </div>
       }
