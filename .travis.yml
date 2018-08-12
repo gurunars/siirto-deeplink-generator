@@ -13,7 +13,6 @@ script:
   - yarn build
   - cp .travis.yml build
   - touch build/.nojekyll
-  - echo %DOMAIN-NAME-TBD% > build/CNAME
 branches:
   only:
   - develop
