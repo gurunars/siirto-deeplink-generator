@@ -1,0 +1,19 @@
+import { action } from "@storybook/addon-actions";
+import { storiesOf } from "@storybook/react";
+import * as React from "react";
+import { host } from "storybook-host";
+
+import {{name}} from ".";
+
+storiesOf("{{name}}", module)
+  .addDecorator(host({
+    align: "center top",
+    height: 600,
+    width: 800,
+  }))
+  .add("basic", () => (
+    <{{name}}
+      title="Sample Title"
+      onClick={action("onClick")}
+    />
+  ));
