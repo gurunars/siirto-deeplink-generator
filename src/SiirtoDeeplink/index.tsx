@@ -4,6 +4,18 @@ import * as React from "react";
 import { withContentRect } from "react-measure";
 
 import Box from "../Box";
+import { merge } from "../utils";
+
+/**
+ * @param name Human readable name
+ * @param businessId Business Identifier
+ * @param classificationCode Industrial classification code. 5 digits.
+ */
+export interface UltimateBeneficiary {
+  name: string;
+  businessId: string;
+  classificationCode: string;
+}
 
 /**
  * @param siirtoIdentifier Own Siirto-identifier or Beneficiary proxy.
@@ -28,7 +40,7 @@ export interface Deeplink {
   currency?: string;
   personalMessage?: string;
   reference?: string;
-  ultimateBeneficiary?: string;
+  ultimateBeneficiary?: UltimateBeneficiary;
   redirectUrl?: string;
 }
 
@@ -36,8 +48,8 @@ export interface WithDeeplink {
   deeplink: Box<Deeplink | null>;
 }
 
-export const asQuery = (deeplink: Deeplink) =>
-  stringify({
+export const asQuery = (deeplink: Deeplink) => {
+  let params: any = {
     s: deeplink.siirtoIdentifier,
     a: deeplink.amount,
     c: deeplink.currency,
@@ -45,7 +57,19 @@ export const asQuery = (deeplink: Deeplink) =>
     m: deeplink.message,
     r: deeplink.reference,
     u: deeplink.redirectUrl
-  });
+  };
+
+  if (deeplink.ultimateBeneficiary) {
+    const ub = deeplink.ultimateBeneficiary;
+    params = merge(params, {
+      un: ub.name,
+      ub: ub.businessId,
+      uc: ub.classificationCode
+    });
+  }
+
+  return stringify(params);
+};
 
 /**
  * NOTE: for our library we want the base url to be hardcoded and not
