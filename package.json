@@ -1,6 +1,7 @@
 {
   "name": "frontend",
   "version": "0.1.0",
+  "homepage": "http://gurunars.com/siirto-deeplink-generator/",
   "private": true,
   "dependencies": {
     "currency-codes": "^1.4.0",
