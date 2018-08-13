@@ -77,7 +77,7 @@ export const asQuery = (deeplink: Deeplink) => {
  *
  * TODO: make the url provided by context api
  */
-const SIIRTO_URL = "https://siirto.nordea.fi";
+const SIIRTO_URL = "https://siirto.nordea.fi/pay";
 
 const asUrl = (deeplink: Deeplink) =>
   SIIRTO_URL + "?" + asQuery(deeplink);
