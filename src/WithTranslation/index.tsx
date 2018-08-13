@@ -25,7 +25,7 @@ export const getLocalized = (
   const results = {};
   _.keys(translationMap).map(it => {
     const item = translationMap[it];
-    results[it] = item[language] || item[defaultLanguage] || null;
+    results[it] = item[language] || item[defaultLanguage] || "";
   });
   return results;
 };

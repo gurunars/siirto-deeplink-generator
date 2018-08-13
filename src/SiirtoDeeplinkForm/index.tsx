@@ -14,12 +14,22 @@ import { WithDeeplink } from "../SiirtoDeeplink";
 import { merge } from "../utils";
 import { LocaleContext, Translate } from "../WithTranslation";
 
-const UI_SCHEMA = {
+const UI_SCHEMA_MINIMAL = {
   "ui:order": [
     "siirtoIdentifier",
     "amount",
     "message",
     "*"
+  ]
+};
+
+const UI_SCHEMA_FULL = {
+  "ui:order": [
+    "siirtoIdentifier",
+    "amount",
+    "message",
+    "*",
+    "ultimateBeneficiary"
   ]
 };
 
@@ -73,16 +83,37 @@ const getFullSchema = (tr: Translate): JSONSchema6 => {
           // TODO: clarify the formatting
           pattern: "^([0-9]{4,20}|[A-Za-z]{0,24})$"
         },
-        ultimateBeneficiary: {
-          description: tr("deeplink.ultimateBeneficiary.description"),
-          type: "string",
-          title: tr("deeplink.ultimateBeneficiary.title")
-        },
         redirectUrl: {
           type: "string",
           format: "uri",
           title: tr("deeplink.redirectUrl.title"),
           description: tr("deeplink.redirectUrl.description")
+        },
+        ultimateBeneficiary: {
+          description: tr("deeplink.ultimateBeneficiary.description"),
+          type: "object",
+          title: tr("deeplink.ultimateBeneficiary.title"),
+          required: [
+            "name", "businessId", "classificationCode"
+          ],
+          properties: {
+            name: {
+              type: "string",
+              title: tr("deeplink.ultimateBeneficiary.name.title"),
+              description: tr("deeplink.ultimateBeneficiary.name.description")
+            },
+            businessId: {
+              type: "string",
+              title: tr("deeplink.ultimateBeneficiary.businessId.title"),
+              description: tr("deeplink.ultimateBeneficiary.businessId.description")
+            },
+            classificationCode: {
+              type: "integer",
+              title: tr("deeplink.ultimateBeneficiary.classificationCode.title"),
+              description: tr("deeplink.ultimateBeneficiary.classificationCode.description")
+              // TODO: configure size checks
+            }
+          }
         }
       })
     }
@@ -120,12 +151,14 @@ const CustomFieldTemplate = (props: FieldTemplateProps) => {
           {props.rawErrors && tooltipAnnotation}
         </label>
       }
-      <div style={merge(colorStyle, {
-        wordWrap: "normal",
-        fontSize: 13
-      })}>
-        {props.description}
-      </div>
+      {props.displayLabel &&
+        <div style={merge(colorStyle, {
+          wordWrap: "normal",
+          fontSize: 13
+        })}>
+          {props.description}
+        </div>
+      }
       {props.children}
     </div>
   );
@@ -158,7 +191,7 @@ const SiirtoDeeplinkForm = (
               getFullSchema(tr) :
               getMinimalSchema(tr)
             }
-            uiSchema={UI_SCHEMA}
+            uiSchema={props.expanded ? UI_SCHEMA_FULL : UI_SCHEMA_MINIMAL}
             FieldTemplate={CustomFieldTemplate}
             formData={props.deeplink.get()}
             onChange={it => props.deeplink.set(it.formData)}

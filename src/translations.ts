@@ -36,16 +36,6 @@ const Translations: TranslationMap = {
     fi: "",
     sv: ""
   },
-  "deeplink.ultimateBeneficiary.title": {
-    en: "Ultimate beneficiary",
-    fi: "",
-    sv: ""
-  },
-  "deeplink.ultimateBeneficiary.description": {
-    en: "Extra data mandatory for PSP.",
-    fi: "",
-    sv: ""
-  },
   "deeplink.redirectUrl.title": {
     en: "Redirect url",
     fi: "",
@@ -115,6 +105,46 @@ const Translations: TranslationMap = {
   },
   "deeplink.form.close": {
     en: "Close",
+    fi: "",
+    sv: ""
+  },
+  "deeplink.ultimateBeneficiary.title": {
+    en: "Ultimate beneficiary",
+    fi: "",
+    sv: ""
+  },
+  "deeplink.ultimateBeneficiary.description": {
+    en: "Extra data mandatory for PSP.",
+    fi: "",
+    sv: ""
+  },
+  "deeplink.ultimateBeneficiary.name.title": {
+    en: "Name",
+    fi: "",
+    sv: ""
+  },
+  "deeplink.ultimateBeneficiary.name.description": {
+    en: "Human readable name",
+    fi: "",
+    sv: ""
+  },
+  "deeplink.ultimateBeneficiary.businessId.title": {
+    en: "Business Identifier",
+    fi: "",
+    sv: ""
+  },
+  "deeplink.ultimateBeneficiary.businessId.description": {
+    en: "",
+    fi: "",
+    sv: ""
+  },
+  "deeplink.ultimateBeneficiary.classificationCode.title": {
+    en: "Classification Code",
+    fi: "",
+    sv: ""
+  },
+  "deeplink.ultimateBeneficiary.classificationCode.description": {
+    en: "Industrial classification code. 5 digits.",
     fi: "",
     sv: ""
   }
