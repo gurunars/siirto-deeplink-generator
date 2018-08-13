@@ -71,54 +71,49 @@ export const asQuery = (deeplink: Deeplink) => {
   return stringify(params);
 };
 
-/**
- * NOTE: for our library we want the base url to be hardcoded and not
- * configurable
- *
- * TODO: make the url provided by context api
- */
-const SIIRTO_URL = "https://siirto.nordea.fi/pay";
-
-const asUrl = (deeplink: Deeplink) =>
-  SIIRTO_URL + "?" + asQuery(deeplink);
+export const DeeplinkRootUrlContext =
+  React.createContext("UNDEFINED");
 
 const SiirtoDeeplink = (props: {
   deeplink: Deeplink
-}): React.ReactElement<any> => {
-  const url = asUrl(props.deeplink);
+}): React.ReactElement<any> =>
+  <DeeplinkRootUrlContext.Consumer>
+    {root => {
+      const url = root + "?" + asQuery(props.deeplink);
 
-  const DynamicQr = withContentRect("bounds")(
-    ({ measureRef, contentRect }) => {
-      const size = Math.min(
-        contentRect.entry.width,
-        contentRect.entry.height
-      );
-      return <div style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center"
-      }}>
-        <div style={{
-          marginBottom: 10
-        }} ref={measureRef}>
-          <QRCode
-            size={size}
-            value={url}
-            renderAs="svg"
-          />
-        </div>
-        <a style={{
-          wordWrap: "break-word",
-          maxWidth: size,
-          marginBottom: 10,
-          fontFamily: "\"Lucida Console\", Monaco, monospace"
-        }} href={url}>
-          {url}
-        </a>
-      </div>;
-    });
+      const DynamicQr = withContentRect("bounds")(
+        ({ measureRef, contentRect }) => {
+          const size = Math.min(
+            contentRect.entry.width,
+            contentRect.entry.height
+          );
+          return <div style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center"
+          }}>
+            <div style={{
+              marginBottom: 10
+            }} ref={measureRef}>
+              <QRCode
+                size={size}
+                value={url}
+                renderAs="svg"
+              />
+            </div>
+            <a style={{
+              wordWrap: "break-word",
+              maxWidth: size,
+              marginBottom: 10,
+              fontFamily: "\"Lucida Console\", Monaco, monospace"
+            }} href={url}>
+              {url}
+            </a>
+          </div>;
+        });
 
-  return <DynamicQr />;
-};
+      return <DynamicQr />;
+    }}
+  </DeeplinkRootUrlContext.Consumer>;
 
 export default SiirtoDeeplink;

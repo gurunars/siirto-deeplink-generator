@@ -1,6 +1,7 @@
+import { parse } from "query-string";
 import * as React from "react";
 
-import SiirtoDeeplink, { WithDeeplink } from "../SiirtoDeeplink";
+import SiirtoDeeplink, { DeeplinkRootUrlContext, WithDeeplink } from "../SiirtoDeeplink";
 import SiirtoDeeplinkForm, { WithQr } from "../SiirtoDeeplinkForm";
 import Translations from "../translations";
 import WithTranslation, { LocaleContext, WithLanguage } from "../WithTranslation";
@@ -50,21 +51,29 @@ const Inner = (props: Props): React.ReactElement<any> => {
   );
 };
 
+const isDev = (): boolean => parse(location.search).dev;
+
 const Site = (props: Props): React.ReactElement<any> => (
-  <WithTranslation
-    title={
-      <LocaleContext.Consumer>
-        {tr => <p style={{
-          fontSize: 20,
-          margin: 0
-        }}>{tr("site.title")}</p>}
-      </LocaleContext.Consumer>
-    }
-    translationMap={Translations}
-    language={props.language}
-  >
-    <Inner {...props} />
-  </WithTranslation>
+  <DeeplinkRootUrlContext.Provider value={
+    isDev() ?
+      "https://siirto.trescomas.express/pay" :
+      "https://siirto.nordea.fi/pay"
+  }>
+    <WithTranslation
+      title={
+        <LocaleContext.Consumer>
+          {tr => <p style={{
+            fontSize: 20,
+            margin: 0
+          }}>{tr("site.title")}</p>}
+        </LocaleContext.Consumer>
+      }
+      translationMap={Translations}
+      language={props.language}
+    >
+      <Inner {...props} />
+    </WithTranslation>
+  </DeeplinkRootUrlContext.Provider>
 );
 
 export default Site as React.StatelessComponent<Props>;

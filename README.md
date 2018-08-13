@@ -19,4 +19,7 @@
 
     yarn test
 
+### Dev mode
 
+To generate QR codes and deep links that target our dev environment just
+add "dev=true" as a query string parameter. E.g. "http://example.com?dev=true"
