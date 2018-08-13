@@ -1,5 +1,6 @@
 import { codes } from "currency-codes";
 import { JSONSchema6 } from "json-schema";
+import * as _ from "lodash";
 // tslint:disable-next-line:no-submodule-imports
 import "rc-tooltip/assets/bootstrap_white.css";
 import * as React from "react";
@@ -179,13 +180,43 @@ export interface WithQr {
 
 type Props = WithStyle & WithQr & WithDeeplink;
 
+/**
+ * Recursively drops the fields with falsy values
+ *
+ * Input: {a: {b: {c: null}}, d: "bar"}
+ * Output: {d: "bar"}
+ */
+const dropEmptyValues = (value: any): any => {
+  const filtered = _.isObject(value) ?
+    _(value)
+      .omitBy(_.isEmpty)
+      .mapValues(dropEmptyValues)
+      .value() :
+    value;
+  // if we dropped some values we want to perform one more iteration to see
+  // if it created more falsy values
+  return _.isEqual(value, filtered) ? filtered : dropEmptyValues(filtered);
+};
+
+// The default implementation
+class CustomForm<T> extends Form<T> {
+  public validate(formData: any, schema: any) {
+    // @ts-ignore
+    return super.validate(
+      dropEmptyValues(formData),
+      schema
+    );
+  }
+}
+
 const SiirtoDeeplinkForm = (
   props: Props & ExpandedState
 ): React.ReactElement<any> => (
     <div style={props.style}>
       <LocaleContext.Consumer>
         {tr =>
-          <Form
+          <CustomForm
+            noHtml5Validate
             showErrorList={false}
             schema={props.expanded ?
               getFullSchema(tr) :
@@ -216,7 +247,7 @@ const SiirtoDeeplinkForm = (
                 {tr("deeplink.form.generate")}
               </button>
             </div>
-          </Form>
+          </CustomForm>
         }
       </LocaleContext.Consumer>
     </div>
