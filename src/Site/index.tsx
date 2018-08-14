@@ -6,6 +6,8 @@ import SiirtoDeeplinkForm, { WithQr } from "../SiirtoDeeplinkForm";
 import Translations from "../translations";
 import WithTranslation, { LocaleContext, WithLanguage } from "../WithTranslation";
 
+import Logo from "../assets/logo.svg";
+
 type Props = WithQr & WithDeeplink & WithLanguage;
 
 const Closable = (props: {
@@ -61,12 +63,11 @@ const Site = (props: Props): React.ReactElement<any> => (
   }>
     <WithTranslation
       title={
-        <LocaleContext.Consumer>
-          {tr => <p style={{
-            fontSize: 20,
-            margin: 0
-          }}>{tr("site.title")}</p>}
-        </LocaleContext.Consumer>
+          <div className="NavBar-logo">
+            <a className="nordea-logo" href="/">
+              <img src={Logo} className="app__logo" alt="logo" />
+            </a>
+          </div>
       }
       translationMap={Translations}
       language={props.language}

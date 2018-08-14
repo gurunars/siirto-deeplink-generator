@@ -89,7 +89,7 @@ const Translations: TranslationMap = {
     sv: ""
   },
   "site.title": {
-    en: "Siirto Deeplink Generator",
+    en: "Nordea Siirto",
     fi: "",
     sv: ""
   },

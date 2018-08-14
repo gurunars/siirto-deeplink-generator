@@ -1,5 +1,6 @@
 import * as React from "react";
 
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import HashStateAware from "./HashStateAware";
 import { Deeplink } from "./SiirtoDeeplink";
 import Site from "./Site";
@@ -19,26 +20,28 @@ const initial: State = {
 };
 
 const App = () => (
-  <HashStateAware initial={initial}>
-    {(data: State, set: (data: State) => void) => {
-      const field = (name: string) => ({
-        get: () => data[name],
-        set: (value: any) => {
-          const payload = {};
-          payload[name] = value;
-          set(merge(data, payload) as State);
-        }
-      });
+  <MuiThemeProvider>
+    <HashStateAware initial={initial}>
+      {(data: State, set: (data: State) => void) => {
+        const field = (name: string) => ({
+          get: () => data[name],
+          set: (value: any) => {
+            const payload = {};
+            payload[name] = value;
+            set(merge(data, payload) as State);
+          }
+        });
 
-      return (
-        <Site
-          deeplink={field("deeplink")}
-          language={field("language")}
-          qrShown={field("qrShown")}
-        />
-      );
-    }}
-  </HashStateAware>
+        return (
+          <Site
+            deeplink={field("deeplink")}
+            language={field("language")}
+            qrShown={field("qrShown")}
+          />
+        );
+      }}
+    </HashStateAware>
+  </MuiThemeProvider>
 );
 
 export default App;

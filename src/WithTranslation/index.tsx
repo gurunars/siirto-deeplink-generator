@@ -30,7 +30,7 @@ export const getLocalized = (
   return results;
 };
 
-const TITLE_BAR_HEIGHT = "50px";
+const TITLE_BAR_HEIGHT = "80px";
 
 const WithTranslation = (props: {
   title: React.ReactNode,
@@ -55,16 +55,7 @@ const WithTranslation = (props: {
         height: "100%",
         overflowY: "hidden",
       }}>
-        <div style={{
-          backgroundColor: "#0000a0",
-          display: "flex",
-          width: "100%",
-          flexDirection: "column",
-          alignContent: "center",
-          alignItems: "center",
-          color: "white",
-          height: TITLE_BAR_HEIGHT
-        }}>
+        <div className="NavBar">
           <div style={{
             display: "flex",
             flexDirection: "row",

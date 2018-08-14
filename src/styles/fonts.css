@@ -1,0 +1,125 @@
+@font-face {
+    font-family: "NordeaSansSmall";
+    font-style: normal;
+    font-weight: 300;
+    src: url("../fonts/NordeaSansSmall-Light.eot") format("eot"), url("../fonts/NordeaSansSmall-Light.ttf") format("truetype"), url("../fonts/NordeaSansSmall-Light.woff") format("woff"), url("../fonts/NordeaSansSmall-Light.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "NordeaSansSmall";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../fonts/NordeaSansSmall-Regular.eot") format("eot"), url("../fonts/NordeaSansSmall-Regular.ttf") format("truetype"), url("../fonts/NordeaSansSmall-Regular.woff") format("woff"), url("../fonts/NordeaSansSmall-Regular.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "NordeaSansSmall";
+    font-style: normal;
+    font-weight: 500;
+    src: url("../fonts/NordeaSansSmall-Medium.eot") format("eot"), url("../fonts/NordeaSansSmall-Medium.ttf") format("truetype"), url("../fonts/NordeaSansSmall-Medium.woff") format("woff"), url("../fonts/NordeaSansSmall-Medium.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "NordeaSansSmall";
+    font-style: normal;
+    font-weight: 700;
+    src: url("../fonts/NordeaSansSmall-Bold.eot") format("eot"), url("../fonts/NordeaSansSmall-Bold.ttf") format("truetype"), url("../fonts/NordeaSansSmall-Bold.woff") format("woff"), url("../fonts/NordeaSansSmall-Bold.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "NordeaSansSmall";
+    font-style: normal;
+    font-weight: 900;
+    src: url("../fonts/NordeaSansSmall-Black.eot") format("eot"), url("../fonts/NordeaSansSmall-Black.ttf") format("truetype"), url("../fonts/NordeaSansSmall-Black.woff") format("woff"), url("../fonts/NordeaSansSmall-Black.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "NordeaSansSmall";
+    font-style: italic;
+    font-weight: 300;
+    src: url("../fonts/NordeaSansSmall-LightItalic.eot") format("eot"), url("../fonts/NordeaSansSmall-LightItalic.ttf") format("truetype"), url("../fonts/NordeaSansSmall-LightItalic.woff") format("woff"), url("../fonts/NordeaSansSmall-LightItalic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "NordeaSansSmall";
+    font-style: italic;
+    font-weight: 400;
+    src: url("../fonts/NordeaSansSmall-Italic.eot") format("eot"), url("../fonts/NordeaSansSmall-Italic.ttf") format("truetype"), url("../fonts/NordeaSansSmall-Italic.woff") format("woff"), url("../fonts/NordeaSansSmall-Italic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "NordeaSansSmall";
+    font-style: italic;
+    font-weight: 600;
+    src: url("../fonts/NordeaSansSmall-MediumItalic.eot") format("eot"), url("../fonts/NordeaSansSmall-MediumItalic.ttf") format("truetype"), url("../fonts/NordeaSansSmall-MediumItalic.woff") format("woff"), url("../fonts/NordeaSansSmall-MediumItalic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "NordeaSansSmall";
+    font-style: italic;
+    font-weight: 700;
+    src: url("../fonts/NordeaSansSmall-BoldItalic.eot") format("eot"), url("../fonts/NordeaSansSmall-BoldItalic.ttf") format("truetype"), url("../fonts/NordeaSansSmall-BoldItalic.woff") format("woff"), url("../fonts/NordeaSansSmall-BoldItalic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "NordeaSansLarge";
+    font-style: normal;
+    font-weight: 300;
+    src: url("../fonts/NordeaSansLarge-Light.eot") format("eot"), url("../fonts/NordeaSansLarge-Light.ttf") format("truetype"), url("../fonts/NordeaSansLarge-Light.woff") format("woff"), url("../fonts/NordeaSansLarge-Light.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "NordeaSansLarge";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../fonts/NordeaSansLarge-Regular.eot") format("eot"), url("../fonts/NordeaSansLarge-Regular.ttf") format("truetype"), url("../fonts/NordeaSansLarge-Regular.woff") format("woff"), url("../fonts/NordeaSansLarge-Regular.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "NordeaSansLarge";
+    font-style: normal;
+    font-weight: 500;
+    src: url("../fonts/NordeaSansLarge-Medium.eot") format("eot"), url("../fonts/NordeaSansLarge-Medium.ttf") format("truetype"), url("../fonts/NordeaSansLarge-Medium.woff") format("woff"), url("../fonts/NordeaSansLarge-Medium.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "NordeaSansLarge";
+    font-style: normal;
+    font-weight: 700;
+    src: url("../fonts/NordeaSansLarge-Bold.eot") format("eot"), url("../fonts/NordeaSansLarge-Bold.ttf") format("truetype"), url("../fonts/NordeaSansLarge-Bold.woff") format("woff"), url("../fonts/NordeaSansLarge-Bold.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "NordeaSansLarge";
+    font-style: normal;
+    font-weight: 900;
+    src: url("../fonts/NordeaSansLarge-Black.eot") format("eot"), url("../fonts/NordeaSansLarge-Black.ttf") format("truetype"), url("../fonts/NordeaSansLarge-Black.woff") format("woff"), url("../fonts/NordeaSansLarge-Black.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "NordeaSansLarge";
+    font-style: italic;
+    font-weight: 300;
+    src: url("../fonts/NordeaSansLarge-LightItalic.eot") format("eot"), url("../fonts/NordeaSansLarge-LightItalic.ttf") format("truetype"), url("../fonts/NordeaSansLarge-LightItalic.woff") format("woff"), url("../fonts/NordeaSansLarge-LightItalic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "NordeaSansLarge";
+    font-style: italic;
+    font-weight: 400;
+    src: url("../fonts/NordeaSansLarge-Italic.eot") format("eot"), url("../fonts/NordeaSansLarge-Italic.ttf") format("truetype"), url("../fonts/NordeaSansLarge-Italic.woff") format("woff"), url("../fonts/NordeaSansLarge-Italic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "NordeaSansLarge";
+    font-style: italic;
+    font-weight: 500;
+    src: url("../fonts/NordeaSansLarge-MediumItalic.eot") format("eot"), url("../fonts/NordeaSansLarge-MediumItalic.ttf") format("truetype"), url("../fonts/NordeaSansLarge-MediumItalic.woff") format("woff"), url("../fonts/NordeaSansLarge-MediumItalic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "NordeaSansLarge";
+    font-style: italic;
+    font-weight: 700;
+    src: url("../fonts/NordeaSansLarge-BoldItalic.eot") format("eot"), url("../fonts/NordeaSansLarge-BoldItalic.ttf") format("truetype"), url("../fonts/NordeaSansLarge-BoldItalic.woff") format("woff"), url("../fonts/NordeaSansLarge-BoldItalic.woff2") format("woff2");
+}

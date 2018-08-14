@@ -1,0 +1,31 @@
+@import "./styles/fonts.css";
+
+
+
+body, label, a, button {
+    font-family: "NordeaSansSmall" !important;
+}
+
+@font-face {
+    font-family: "nordea-obi";
+    src: url("./fonts/nordea-obi.eot");
+    src: url("./fonts/nordea-obi.eot?kwqxot#iefix") format("embedded-opentype"), url("./fonts/nordea-obi.ttf?kwqxot") format("truetype"), url("./fonts/nordea-obi.woff?kwqxot") format("woff"), url("./fonts/nordea-obi.svg?kwqxot#nordea-obi") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.NavBar {
+    background-color: #0000a0;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    color: white;
+    height: 80px;
+    padding: 20px 0;
+}
+
+.NavBar-logo {
+
+}

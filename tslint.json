@@ -4,6 +4,8 @@
     ],
     "rules": {
         "no-redundant-jsdoc": true,
+        "no-submodule-imports": false,
+        "ordered-imports": false,
         "class-name": true,
         "arrow-parens": [
             true,
