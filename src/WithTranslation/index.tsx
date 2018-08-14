@@ -30,6 +30,8 @@ export const getLocalized = (
   return results;
 };
 
+const TITLE_BAR_HEIGHT = "50px";
+
 const WithTranslation = (props: {
   title: React.ReactNode,
   children: React.ReactNode,
@@ -51,26 +53,25 @@ const WithTranslation = (props: {
         position: "relative",
         width: "100%",
         height: "100%",
-        overflowY: "hidden"
+        overflowY: "hidden",
       }}>
         <div style={{
           backgroundColor: "#0000a0",
-          paddingTop: 10,
-          paddingBottom: 10,
           display: "flex",
           width: "100%",
           flexDirection: "column",
           alignContent: "center",
           alignItems: "center",
-          marginBottom: 10,
-          color: "white"
+          color: "white",
+          height: TITLE_BAR_HEIGHT
         }}>
           <div style={{
             display: "flex",
             flexDirection: "row",
             justifyContent: "space-between",
             width: "100%",
-            maxWidth: 800
+            maxWidth: 800,
+            padding: 10
           }}>
             {props.title}
             <select
@@ -100,13 +101,16 @@ const WithTranslation = (props: {
           display: "flex",
           flexDirection: "column",
           width: "100%",
+          height: "calc(100% - " + TITLE_BAR_HEIGHT + ")",
           overflowY: "auto",
+          overflow: "overlay",
           alignContent: "center",
           alignItems: "center",
         }}>
           <div style={{
             width: "100%",
             maxWidth: 800,
+            padding: 10,
             paddingBottom: 80
           }} >
             {props.children}
