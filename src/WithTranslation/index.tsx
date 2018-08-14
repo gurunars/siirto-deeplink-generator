@@ -79,18 +79,16 @@ const WithTranslation = (props: {
                 textTransform: "uppercase",
                 width: 80
               }}
+              value={language}
               onChange={it => props.language.set(
                 SupportedLanguage[it.target.value]
               )}
             >
               {
                 _.map(
-                  _.keys(SupportedLanguage),
+                  SupportedLanguage,
                   value =>
-                    <option
-                      selected={value === language}
-                      value={value}
-                    >
+                    <option value={value} key={value}>
                       {value}
                     </option>
                 )

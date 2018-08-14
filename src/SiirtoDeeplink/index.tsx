@@ -86,7 +86,7 @@ const SiirtoDeeplink = (props: {
           const size = Math.min(
             contentRect.entry.width,
             contentRect.entry.height
-          );
+          ) || 200;
           return <div style={{
             display: "flex",
             flexDirection: "column",
